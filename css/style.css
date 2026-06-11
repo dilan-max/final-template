@@ -1,25 +1,27 @@
 /* ===== custom properties ===== */
 :root {
-  /* colour palette and spacing variables */
+  /* colour palette, spacing, typography */
 }
 
 /* ===== reset ===== */
 
+/* ===== base typography ===== */
+
 /* ===== header ===== */
 
-/* ===== nav — use Flexbox here ===== */
+/* ===== nav — Flexbox ===== */
 
-/* ===== login page ===== */
+/* ===== home / settings form ===== */
 
-/* ===== main ===== */
+/* ===== quiz card — CSS Grid ===== */
 
-/* ===== form ===== */
+/* ===== answer buttons — Flexbox ===== */
 
-/* ===== results grid — use CSS Grid here ===== */
+/* ===== progress bar ===== */
 
-/* ===== card ===== */
+/* ===== timer ===== */
 
-/* ===== saved grid — use CSS Grid here ===== */
+/* ===== results — CSS Grid ===== */
 
 /* ===== loading & error states ===== */
 

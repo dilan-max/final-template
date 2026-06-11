@@ -10,22 +10,81 @@
 
   <header class="header">
     <nav class="nav">
-      <span class="nav__logo">Trivia Quiz</span>
-      <div class="nav__links">
-        <a href="index.html">Home</a>
-        <a href="results.html">High Scores</a>
-      </div>
+      <a href="index.html" class="nav__logo">Trivia Quiz</a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+        <li><a href="results.html" class="nav__link">High Scores</a></li>
+      </ul>
     </nav>
   </header>
 
   <main class="main">
     <section class="home">
-      <!-- settings form goes here -->
+      <article class="home__card">
+        <h1 class="home__title">Welcome to Trivia Quiz</h1>
+        <p class="home__subtitle">Test your knowledge across dozens of categories.</p>
+
+        <form id="settings-form" class="form" novalidate>
+
+          <div class="form__group">
+            <label for="username" class="form__label">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form__input"
+              placeholder="Enter your name"
+              required
+              minlength="2"
+              maxlength="20"
+              autocomplete="off"
+            >
+            <span class="form__error" id="username-error"></span>
+          </div>
+
+          <div class="form__group">
+            <label for="category" class="form__label">Category</label>
+            <select id="category" name="category" class="form__select">
+              <option value="0">Any Category</option>
+              <option value="9">General Knowledge</option>
+              <option value="10">Entertainment: Books</option>
+              <option value="11">Entertainment: Film</option>
+              <option value="12">Entertainment: Music</option>
+              <option value="17">Science &amp; Nature</option>
+              <option value="18">Science: Computers</option>
+              <option value="21">Sports</option>
+              <option value="22">Geography</option>
+              <option value="23">History</option>
+              <option value="25">Art</option>
+            </select>
+          </div>
+
+          <fieldset class="form__fieldset">
+            <legend class="form__legend">Difficulty</legend>
+            <div class="form__radio-group">
+              <label class="form__radio-label">
+                <input type="radio" name="difficulty" value="easy" class="form__radio">
+                Easy
+              </label>
+              <label class="form__radio-label">
+                <input type="radio" name="difficulty" value="medium" class="form__radio" checked>
+                Medium
+              </label>
+              <label class="form__radio-label">
+                <input type="radio" name="difficulty" value="hard" class="form__radio">
+                Hard
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn--primary">Start Quiz</button>
+        </form>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Powered by <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></p>
+    <p class="footer__text">Powered by <a href="https://opentdb.com" target="_blank" rel="noopener" class="footer__link">Open Trivia DB</a></p>
   </footer>
 
   <script type="module" src="js/main.js"></script>

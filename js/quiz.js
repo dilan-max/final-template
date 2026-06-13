@@ -1,6 +1,7 @@
 import { fetchQuestions } from './api.js';
 
 const root = document.getElementById('quiz-root');
+const TIMER_SECONDS = 15;
 
 const state = {
   questions: [],
@@ -8,6 +9,35 @@ const state = {
   score: 0,
   username: '',
 };
+
+let timerId = null;
+
+function clearTimer() {
+  if (timerId !== null) {
+    clearInterval(timerId);
+    timerId = null;
+  }
+}
+
+function startTimer() {
+  let remaining = TIMER_SECONDS;
+
+  timerId = setInterval(() => {
+    remaining -= 1;
+
+    const display = document.getElementById('timer-display');
+    if (display) {
+      display.textContent = remaining;
+      if (remaining <= 5) display.classList.add('quiz__timer--low');
+    }
+
+    if (remaining <= 0) {
+      clearTimer();
+      lockAnswers(state.questions[state.current].correct);
+      setTimeout(advance, 1000);
+    }
+  }, 1000);
+}
 
 function buildProgressBar(current, total) {
   const wrap = document.createElement('div');
@@ -28,6 +58,14 @@ function buildProgressBar(current, total) {
   wrap.appendChild(track);
   wrap.appendChild(label);
   return wrap;
+}
+
+function buildTimerDisplay() {
+  const timer = document.createElement('div');
+  timer.className = 'quiz__timer';
+  timer.id = 'timer-display';
+  timer.textContent = TIMER_SECONDS;
+  return timer;
 }
 
 function buildScoreDisplay() {
@@ -57,6 +95,7 @@ function buildAnswerButtons(question) {
 }
 
 function renderQuestion(index) {
+  clearTimer();
   root.innerHTML = '';
 
   const question = state.questions[index];
@@ -68,7 +107,6 @@ function renderQuestion(index) {
   const header = document.createElement('div');
   header.className = 'quiz__header';
   header.appendChild(buildProgressBar(index, total));
-  header.appendChild(buildScoreDisplay());
 
   const meta = document.createElement('p');
   meta.className = 'quiz__meta';
@@ -78,12 +116,19 @@ function renderQuestion(index) {
   questionEl.className = 'quiz__question';
   questionEl.textContent = question.question;
 
+  const stats = document.createElement('div');
+  stats.className = 'quiz__stats';
+  stats.appendChild(buildScoreDisplay());
+  stats.appendChild(buildTimerDisplay());
+
   card.appendChild(header);
+  card.appendChild(stats);
   card.appendChild(meta);
   card.appendChild(questionEl);
   card.appendChild(buildAnswerButtons(question));
 
   root.appendChild(card);
+  startTimer();
 }
 
 function lockAnswers(correct) {
@@ -96,30 +141,31 @@ function lockAnswers(correct) {
   });
 }
 
-function handleAnswer(btn, selected, question) {
-  const isCorrect = selected === question.correct;
+function advance() {
+  state.current += 1;
+  if (state.current < state.questions.length) {
+    renderQuestion(state.current);
+  } else {
+    sessionStorage.setItem('quizResult', JSON.stringify({
+      score: state.score,
+      total: state.questions.length,
+      username: state.username,
+    }));
+    window.location.href = 'results.html';
+  }
+}
 
-  if (isCorrect) {
+function handleAnswer(btn, selected, question) {
+  clearTimer();
+
+  if (selected === question.correct) {
     state.score += 1;
   } else {
     btn.classList.add('answers__btn--wrong');
   }
 
   lockAnswers(question.correct);
-
-  setTimeout(() => {
-    state.current += 1;
-    if (state.current < state.questions.length) {
-      renderQuestion(state.current);
-    } else {
-      sessionStorage.setItem('quizResult', JSON.stringify({
-        score: state.score,
-        total: state.questions.length,
-        username: state.username,
-      }));
-      window.location.href = 'results.html';
-    }
-  }, 1000);
+  setTimeout(advance, 1000);
 }
 
 async function init() {

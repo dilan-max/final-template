@@ -325,11 +325,35 @@ textarea {
   gap: var(--space-md);
 }
 
+.quiz__stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .quiz__score {
   font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--clr-primary);
-  white-space: nowrap;
+}
+
+.quiz__timer {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--clr-text-muted);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--clr-border);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.quiz__timer--low {
+  color: var(--clr-wrong);
+  border-color: var(--clr-wrong);
 }
 
 .quiz__meta {

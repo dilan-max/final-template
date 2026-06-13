@@ -10,22 +10,22 @@
 
   <header class="header">
     <nav class="nav">
-      <span class="nav__logo">Trivia Quiz</span>
-      <div class="nav__links">
-        <a href="index.html">Home</a>
-        <a href="results.html">High Scores</a>
-      </div>
+      <a href="index.html" class="nav__logo">Trivia Quiz</a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="results.html" class="nav__link nav__link--active">High Scores</a></li>
+      </ul>
     </nav>
   </header>
 
   <main class="main">
-    <section class="results">
-      <!-- results rendered here -->
+    <section class="results" id="results-root">
+      <!-- results card injected here by results.js -->
     </section>
   </main>
 
   <footer class="footer">
-    <p>Powered by <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></p>
+    <p class="footer__text">Powered by <a href="https://opentdb.com" target="_blank" rel="noopener" class="footer__link">Open Trivia DB</a></p>
   </footer>
 
   <script type="module" src="js/results.js"></script>

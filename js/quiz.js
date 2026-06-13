@@ -168,14 +168,45 @@ function handleAnswer(btn, selected, question) {
   setTimeout(advance, 1000);
 }
 
+function renderSpinner() {
+  root.innerHTML = '';
+  const wrap = document.createElement('div');
+  wrap.className = 'spinner';
+  const circle = document.createElement('div');
+  circle.className = 'spinner__circle';
+  wrap.appendChild(circle);
+  root.appendChild(wrap);
+}
+
+function renderError(msg) {
+  root.innerHTML = '';
+  const err = document.createElement('p');
+  err.className = 'error-msg';
+  err.textContent = msg;
+  const link = document.createElement('a');
+  link.href = 'index.html';
+  link.className = 'btn btn--secondary';
+  link.style.marginTop = '1rem';
+  link.textContent = 'Go Home';
+  root.appendChild(err);
+  root.appendChild(link);
+}
+
 async function init() {
   const settings = JSON.parse(sessionStorage.getItem('quizSettings') || '{}');
   state.username = settings.username || 'Player';
 
-  state.questions = await fetchQuestions(settings.difficulty, settings.category);
+  renderSpinner();
+
+  try {
+    state.questions = await fetchQuestions(settings.difficulty, settings.category);
+  } catch (err) {
+    renderError(err.message || 'Failed to load questions. Please try again.');
+    return;
+  }
+
   state.current = 0;
   state.score = 0;
-
   renderQuestion(state.current);
 }
 

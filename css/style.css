@@ -1,3 +1,7 @@
+/* ==============================================
+   DESIGN TOKENS
+   ============================================== */
+
 :root {
   --clr-primary: #ff2d87;
   --clr-primary-dark: #d4006a;
@@ -42,6 +46,11 @@
   --transition: 150ms ease;
 }
 
+
+/* ==============================================
+   RESET
+   ============================================== */
+
 *,
 *::before,
 *::after {
@@ -54,6 +63,11 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
+
+
+/* ==============================================
+   BASE — BODY & BACKGROUND BLOBS
+   ============================================== */
 
 body {
   font-family: var(--font-base);
@@ -83,18 +97,10 @@ body::before {
   z-index: 0;
 }
 
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -15%;
-  left: -10%;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.09) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
+
+/* ==============================================
+   ANIMATIONS
+   ============================================== */
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -111,6 +117,20 @@ body::after {
   0%, 100% { box-shadow: 0 0 0 0 rgba(255, 49, 49, 0.4); }
   50%       { box-shadow: 0 0 0 6px rgba(255, 49, 49, 0); }
 }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ==============================================
+   ELEMENT DEFAULTS
+   ============================================== */
 
 img {
   display: block;
@@ -140,11 +160,13 @@ textarea {
   font-size: inherit;
 }
 
+
+/* ==============================================
+   HEADER & NAVIGATION
+   ============================================== */
+
 .header {
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: none;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -177,7 +199,6 @@ textarea {
 }
 
 .nav__logo-icon {
-  flex-shrink: 0;
   filter: drop-shadow(0 2px 8px rgba(255, 45, 135, 0.40));
   transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), filter var(--transition);
 }
@@ -192,7 +213,6 @@ textarea {
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--clr-text);
-  line-height: 1;
 }
 
 .nav__logo-accent {
@@ -228,6 +248,11 @@ textarea {
   font-weight: 600;
 }
 
+
+/* ==============================================
+   LAYOUT
+   ============================================== */
+
 .main {
   flex: 1;
   display: flex;
@@ -235,6 +260,11 @@ textarea {
   justify-content: center;
   padding: var(--space-2xl) var(--space-lg);
 }
+
+
+/* ==============================================
+   HOME PAGE
+   ============================================== */
 
 .home {
   width: 100%;
@@ -249,7 +279,18 @@ textarea {
   position: relative;
   overflow: hidden;
   animation: float 5s ease-in-out infinite;
-  z-index: 1;
+}
+
+.home__card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 135, 0.18) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .home__title {
@@ -265,6 +306,11 @@ textarea {
   color: var(--clr-text-muted);
   margin-bottom: var(--space-xl);
 }
+
+
+/* ==============================================
+   FORM
+   ============================================== */
 
 .form {
   display: flex;
@@ -305,8 +351,7 @@ textarea {
 .form__input--error {
   border-color: var(--clr-wrong);
 }
-
-.form__error {
+.form__error { 
   font-size: var(--font-size-sm);
   color: var(--clr-wrong);
   min-height: 1.2em;
@@ -342,10 +387,12 @@ textarea {
   height: 16px;
 }
 
+
+/* ==============================================
+   BUTTONS
+   ============================================== */
+
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 0.75rem var(--space-xl);
   border-radius: var(--radius-md);
   font-size: var(--font-size-base);
@@ -383,6 +430,10 @@ textarea {
 }
 
 
+/* ==============================================
+   QUIZ PAGE
+   ============================================== */
+
 .quiz {
   width: 100%;
   max-width: 680px;
@@ -412,11 +463,6 @@ textarea {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0, 180, 255, 0.18) 0%, transparent 70%);
   pointer-events: none;
-}
-
-@keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(16px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .quiz__header {
@@ -471,6 +517,11 @@ textarea {
   color: var(--clr-text);
 }
 
+
+/* ==============================================
+   ANSWER BUTTONS
+   ============================================== */
+
 .answers {
   display: flex;
   flex-direction: column;
@@ -521,6 +572,11 @@ textarea {
   color: var(--clr-wrong-text);
 }
 
+
+/* ==============================================
+   PROGRESS BAR
+   ============================================== */
+
 .progress {
   display: flex;
   flex-direction: column;
@@ -547,6 +603,11 @@ textarea {
   color: var(--clr-text-muted);
 }
 
+
+/* ==============================================
+   RESULTS PAGE
+   ============================================== */
+
 .results {
   width: 100%;
   max-width: 520px;
@@ -564,6 +625,18 @@ textarea {
   overflow: hidden;
   animation: fadeSlideIn 320ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
   z-index: 1;
+}
+
+.results__card::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 0, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .results__title {
@@ -597,6 +670,11 @@ textarea {
   justify-content: center;
 }
 
+
+/* ==============================================
+   LOADING & ERROR STATES
+   ============================================== */
+
 .spinner {
   display: flex;
   align-items: center;
@@ -613,16 +691,17 @@ textarea {
   animation: spin 0.7s linear infinite;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 .error-msg {
   text-align: center;
   padding: var(--space-xl);
   color: var(--clr-wrong);
   font-weight: 500;
 }
+
+
+/* ==============================================
+   RESPONSIVE — MOBILE (≤ 600px)
+   ============================================== */
 
 @media (max-width: 600px) {
   body::before {
@@ -644,7 +723,7 @@ textarea {
   }
 
   .nav__links {
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
 
   .main {
@@ -726,6 +805,11 @@ textarea {
     flex-direction: column;
   }
 }
+
+
+/* ==============================================
+   RESPONSIVE — DESKTOP (≥ 1024px)
+   ============================================== */
 
 @media (min-width: 1024px) {
   .home__card {

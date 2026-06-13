@@ -51,6 +51,8 @@ body {
   font-size: var(--font-size-base);
   color: var(--clr-text);
   background-color: var(--clr-bg);
+  background-image: url('../assets/bg-pattern.svg');
+  background-size: 220px 220px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

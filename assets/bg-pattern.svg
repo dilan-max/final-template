@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+
+  <!-- large question mark -->
+  <text x="12" y="72" font-size="58" font-family="Arial, sans-serif" fill="rgba(108,99,255,0.07)">?</text>
+
+  <!-- star top-right -->
+  <polygon points="168,14 172,27 186,27 175,35 179,48 168,40 157,48 161,35 150,27 164,27"
+           fill="rgba(108,99,255,0.08)"/>
+
+  <!-- small question mark -->
+  <text x="118" y="140" font-size="28" font-family="Arial, sans-serif" fill="rgba(108,99,255,0.06)">?</text>
+
+  <!-- small star mid-left -->
+  <polygon points="42,108 45,118 55,118 47,124 50,134 42,128 34,134 37,124 29,118 39,118"
+           fill="rgba(108,99,255,0.06)"/>
+
+  <!-- trophy cup outline -->
+  <path d="M88,170 h16 v-8 h6 a10,10 0 0,0 0-20 h-2 v-14 h-24 v14 h-2 a10,10 0 0,0 0,20 h6 z"
+        fill="none" stroke="rgba(108,99,255,0.06)" stroke-width="2"/>
+
+  <!-- dot cluster bottom-right -->
+  <circle cx="192" cy="175" r="5"   fill="rgba(108,99,255,0.07)"/>
+  <circle cx="205" cy="158" r="3"   fill="rgba(108,99,255,0.05)"/>
+  <circle cx="178" cy="162" r="3.5" fill="rgba(108,99,255,0.05)"/>
+
+  <!-- tiny dot top-left -->
+  <circle cx="25" cy="165" r="3" fill="rgba(108,99,255,0.05)"/>
+
+  <!-- tiny question mark top-right corner -->
+  <text x="185" y="90" font-size="18" font-family="Arial, sans-serif" fill="rgba(108,99,255,0.05)">?</text>
+
+</svg>

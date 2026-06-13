@@ -10,6 +10,17 @@ function getHighScore(username) {
   return raw ? parseInt(raw, 10) : 0;
 }
 
+function saveHighScore(username, score) {
+  const prev = getHighScore(username);
+  if (score > prev) {
+    localStorage.setItem(`highScore_${username}`, score);
+  }
+}
+
+function saveUsername(username) {
+  localStorage.setItem('lastUsername', username);
+}
+
 function grade(score, total) {
   const pct = score / total;
   if (pct === 1)   return 'Perfect! 🏆';
@@ -20,6 +31,8 @@ function grade(score, total) {
 
 function renderResults(result) {
   const { score, total, username } = result;
+  saveHighScore(username, score);
+  saveUsername(username);
   const highScore = getHighScore(username);
 
   const card = document.createElement('article');

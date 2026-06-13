@@ -1,1 +1,6 @@
-// Entry point for index.html (home/settings page)
+const usernameInput = document.getElementById('username');
+
+const saved = localStorage.getItem('lastUsername');
+if (saved) {
+  usernameInput.value = saved;
+}

@@ -13,15 +13,19 @@ function buildProgressBar(current, total) {
   const wrap = document.createElement('div');
   wrap.className = 'progress';
 
+  const track = document.createElement('div');
+  track.className = 'progress__track';
+
   const bar = document.createElement('div');
   bar.className = 'progress__bar';
-  bar.style.width = `${((current) / total) * 100}%`;
+  bar.style.width = `${(current / total) * 100}%`;
 
   const label = document.createElement('span');
   label.className = 'progress__label';
   label.textContent = `${current} / ${total}`;
 
-  wrap.appendChild(bar);
+  track.appendChild(bar);
+  wrap.appendChild(track);
   wrap.appendChild(label);
   return wrap;
 }

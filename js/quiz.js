@@ -82,8 +82,40 @@ function renderQuestion(index) {
   root.appendChild(card);
 }
 
-function handleAnswer(_btn, _selected, _question) {
-  // implemented in next commit
+function lockAnswers(correct) {
+  const buttons = root.querySelectorAll('.answers__btn');
+  buttons.forEach((btn) => {
+    btn.disabled = true;
+    if (btn.textContent === correct) {
+      btn.classList.add('answers__btn--correct');
+    }
+  });
+}
+
+function handleAnswer(btn, selected, question) {
+  const isCorrect = selected === question.correct;
+
+  if (isCorrect) {
+    state.score += 1;
+  } else {
+    btn.classList.add('answers__btn--wrong');
+  }
+
+  lockAnswers(question.correct);
+
+  setTimeout(() => {
+    state.current += 1;
+    if (state.current < state.questions.length) {
+      renderQuestion(state.current);
+    } else {
+      sessionStorage.setItem('quizResult', JSON.stringify({
+        score: state.score,
+        total: state.questions.length,
+        username: state.username,
+      }));
+      window.location.href = 'results.html';
+    }
+  }, 1000);
 }
 
 async function init() {

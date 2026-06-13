@@ -1,32 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
 
-  <!-- large question mark -->
-  <text x="12" y="72" font-size="58" font-family="Arial, sans-serif" fill="rgba(108,99,255,0.07)">?</text>
+  <!-- Large ? — floats up and down -->
+  <text x="12" y="72" font-size="58" font-family="Arial, sans-serif"
+        fill="rgb(255,45,135)" fill-opacity="0.07">?
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-9; 0,0" dur="5s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </text>
 
-  <!-- star top-right -->
+  <!-- Star 1 — slow clockwise spin -->
   <polygon points="168,14 172,27 186,27 175,35 179,48 168,40 157,48 161,35 150,27 164,27"
-           fill="rgba(108,99,255,0.08)"/>
+           fill="rgb(0,180,255)" fill-opacity="0.09">
+    <animateTransform attributeName="transform" type="rotate"
+      values="0 168 31; 360 168 31" dur="12s" repeatCount="indefinite"/>
+  </polygon>
 
-  <!-- small question mark -->
-  <text x="118" y="140" font-size="28" font-family="Arial, sans-serif" fill="rgba(108,99,255,0.06)">?</text>
+  <!-- Medium ? — floats, offset phase -->
+  <text x="118" y="140" font-size="28" font-family="Arial, sans-serif"
+        fill="rgb(124,0,255)" fill-opacity="0.07">?
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-6; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </text>
 
-  <!-- small star mid-left -->
+  <!-- Star 2 — counter-clockwise spin, different speed -->
   <polygon points="42,108 45,118 55,118 47,124 50,134 42,128 34,134 37,124 29,118 39,118"
-           fill="rgba(108,99,255,0.06)"/>
+           fill="rgb(255,45,135)" fill-opacity="0.08">
+    <animateTransform attributeName="transform" type="rotate"
+      values="0 42 121; -360 42 121" dur="9s" repeatCount="indefinite"/>
+  </polygon>
 
-  <!-- trophy cup outline -->
+  <!-- Lightbulb — stroke pulses -->
   <path d="M88,170 h16 v-8 h6 a10,10 0 0,0 0-20 h-2 v-14 h-24 v14 h-2 a10,10 0 0,0 0,20 h6 z"
-        fill="none" stroke="rgba(108,99,255,0.06)" stroke-width="2"/>
+        fill="none" stroke="rgb(0,180,255)" stroke-width="2" stroke-opacity="0.09">
+    <animate attributeName="stroke-opacity" values="0.09;0.26;0.09" dur="3s"
+      repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </path>
 
-  <!-- dot cluster bottom-right -->
-  <circle cx="192" cy="175" r="5"   fill="rgba(108,99,255,0.07)"/>
-  <circle cx="205" cy="158" r="3"   fill="rgba(108,99,255,0.05)"/>
-  <circle cx="178" cy="162" r="3.5" fill="rgba(108,99,255,0.05)"/>
+  <!-- Circle cluster — pulse in size and opacity -->
+  <circle cx="192" cy="175" r="5" fill="rgb(0,180,255)" fill-opacity="0.09">
+    <animate attributeName="r" values="5;7.5;5" dur="3s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    <animate attributeName="fill-opacity" values="0.09;0.2;0.09" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="205" cy="158" r="3" fill="rgb(124,0,255)" fill-opacity="0.07">
+    <animate attributeName="r" values="3;4.5;3" dur="4s" begin="0.6s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </circle>
+  <circle cx="178" cy="162" r="3.5" fill="rgb(255,45,135)" fill-opacity="0.07">
+    <animate attributeName="r" values="3.5;5.5;3.5" dur="3.5s" begin="1.2s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </circle>
 
-  <!-- tiny dot top-left -->
-  <circle cx="25" cy="165" r="3" fill="rgba(108,99,255,0.05)"/>
+  <!-- Lone circle — bobs vertically -->
+  <circle cx="25" cy="165" r="3" fill="rgb(0,180,255)" fill-opacity="0.07">
+    <animate attributeName="cy" values="165;159;165" dur="5s" begin="2s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </circle>
 
-  <!-- tiny question mark top-right corner -->
-  <text x="185" y="90" font-size="18" font-family="Arial, sans-serif" fill="rgba(108,99,255,0.05)">?</text>
+  <!-- Small ? — floats, longest phase offset -->
+  <text x="185" y="90" font-size="18" font-family="Arial, sans-serif"
+        fill="rgb(124,0,255)" fill-opacity="0.06">?
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-5; 0,0" dur="6s" begin="3s" repeatCount="indefinite"
+      calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </text>
 
 </svg>

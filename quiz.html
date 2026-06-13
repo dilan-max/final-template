@@ -10,7 +10,21 @@
 
   <header class="header">
     <nav class="nav">
-      <a href="index.html" class="nav__logo">Trivia Quiz</a>
+      <a href="index.html" class="nav__logo">
+        <svg class="nav__logo-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#ff2d87"/>
+              <stop offset="100%" stop-color="#7c00ff"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="32" height="32" rx="10" fill="url(#logoGrad)"/>
+          <rect x="2" y="2" width="30" height="15" rx="9" fill="rgba(255,255,255,0.13)"/>
+          <text x="17" y="23.5" text-anchor="middle" font-size="19" font-weight="900" fill="white" font-family="-apple-system,'Segoe UI',sans-serif">?</text>
+          <path d="M27.5 5.2 L28.1 3.5 L28.7 5.2 L30.5 5.8 L28.7 6.4 L28.1 8.1 L27.5 6.4 L25.7 5.8Z" fill="rgba(255,255,255,0.75)"/>
+        </svg>
+        <span class="nav__logo-wordmark">Trivia<span class="nav__logo-accent"> Quiz</span></span>
+      </a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="results.html" class="nav__link">High Scores</a></li>
@@ -23,10 +37,6 @@
       <!-- quiz card injected here by quiz.js -->
     </section>
   </main>
-
-  <footer class="footer">
-    <p class="footer__text">Powered by <a href="https://opentdb.com" target="_blank" rel="noopener" class="footer__link">Open Trivia DB</a></p>
-  </footer>
 
   <script type="module" src="js/quiz.js"></script>
 </body>

@@ -1,27 +1,42 @@
-# Final Project Template
+# Trivia Quiz
 
-Starter scaffold for the Web Engineering 2026 final project. Open `index.html` in your browser and start building.
+A browser-based trivia game that fetches questions from the [Open Trivia Database](https://opentdb.com/) API. Players configure a quiz, answer questions one at a time, and their scores are saved to a local leaderboard.
 
-**Replace first:**
-- `BASE_URL` in `js/api.js` — your chosen API's base URL
-- `<title>` on all three HTML pages — your project name
-- Colour variables in `css/style.css`
-- Page names if needed — `login.html` / `saved.html` can be renamed to match your project
+## Pages
 
-**File structure:**
+| Page | File | Description |
+|------|------|-------------|
+| Home | `index.html` | Settings form — choose username, category, and difficulty, then start the quiz |
+| Quiz | `quiz.html` | Question cards rendered one at a time with answer feedback |
+| High Scores | `results.html` | Leaderboard of past scores stored in `localStorage` |
+
+## Features
+
+- Fetches trivia questions from the Open Trivia Database API
+- Category selection (General Knowledge, Film, Music, Science, Sports, Geography, History, Art, and more)
+- Difficulty selection: Easy / Medium / Hard
+- Per-question answer feedback (correct / incorrect highlight)
+- Score tracking and persistent leaderboard via `localStorage`
+- Dark / light theme toggle, persisted across sessions
+
+## File Structure
+
 ```
-your-project/
-├── index.html        ← main page
-├── login.html        ← login / profile page (rename if needed)
-├── saved.html        ← saved items page (rename if needed)
+trivia-quiz/
+├── index.html        ← home / settings page
+├── quiz.html         ← active quiz page
+├── results.html      ← high scores leaderboard
 ├── css/
-│   └── style.css
+│   └── style.css     ← all styles + CSS custom properties for theming
 ├── js/
-│   ├── main.js       ← entry point for index.html
-│   ├── login.js      ← entry point for login.html
-│   ├── saved.js      ← entry point for saved.html
-│   └── api.js        ← fetch logic + localStorage helpers
+│   ├── main.js       ← settings form logic, hands off to quiz.html
+│   ├── quiz.js       ← fetches questions, renders cards, tracks score
+│   ├── results.js    ← reads localStorage and renders leaderboard
+│   ├── api.js        ← Open Trivia DB fetch helpers
+│   └── theme.js      ← dark/light toggle
 └── assets/
 ```
 
-See [project requirements](https://github.com/cu-cst-web1-2026-eng/materials/blob/main/lecture_13/final_project/README.md) for the full technical checklist and grading breakdown.
+## Running the App
+
+Open `index.html` in a browser. No build step or server required — all dependencies are native browser APIs.

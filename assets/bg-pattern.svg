@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
 
-  <!-- Large ? — floats up and down -->
-  <text x="12" y="72" font-size="58" font-family="Arial, sans-serif"
+  <!-- Large ? — top-left, floats -->
+  <text x="8" y="80" font-size="72" font-family="Arial, sans-serif"
         fill="rgb(255,45,135)" fill-opacity="0.07">?
     <animateTransform attributeName="transform" type="translate"
       values="0,0; 0,-9; 0,0" dur="5s" repeatCount="indefinite"
@@ -9,67 +9,89 @@
       keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
   </text>
 
-  <!-- Star 1 — slow clockwise spin -->
-  <polygon points="168,14 172,27 186,27 175,35 179,48 168,40 157,48 161,35 150,27 164,27"
-           fill="rgb(0,180,255)" fill-opacity="0.09">
-    <animateTransform attributeName="transform" type="rotate"
-      values="0 168 31; 360 168 31" dur="12s" repeatCount="indefinite"/>
-  </polygon>
-
-  <!-- Medium ? — floats, offset phase -->
-  <text x="118" y="140" font-size="28" font-family="Arial, sans-serif"
-        fill="rgb(124,0,255)" fill-opacity="0.07">?
+  <!-- Small ? — top-center, floats -->
+  <text x="215" y="92" font-size="24" font-family="Arial, sans-serif"
+        fill="rgb(124,0,255)" fill-opacity="0.06">?
     <animateTransform attributeName="transform" type="translate"
-      values="0,0; 0,-6; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"
+      values="0,0; 0,-5; 0,0" dur="6s" begin="3s" repeatCount="indefinite"
       calcMode="spline" keyTimes="0;0.5;1"
       keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
   </text>
 
-  <!-- Star 2 — counter-clockwise spin, different speed -->
-  <polygon points="42,108 45,118 55,118 47,124 50,134 42,128 34,134 37,124 29,118 39,118"
-           fill="rgb(255,45,135)" fill-opacity="0.08">
+  <!-- Star 1 — top-right, clockwise spin (R=22, r=9) -->
+  <polygon points="430,23 435,38 451,38 439,48 443,63 430,54 417,63 421,48 409,38 425,38"
+           fill="rgb(0,180,255)" fill-opacity="0.09">
     <animateTransform attributeName="transform" type="rotate"
-      values="0 42 121; -360 42 121" dur="9s" repeatCount="indefinite"/>
+      values="0 430 45; 360 430 45" dur="12s" repeatCount="indefinite"/>
   </polygon>
 
-  <!-- Lightbulb — stroke pulses -->
-  <path d="M88,170 h16 v-8 h6 a10,10 0 0,0 0-20 h-2 v-14 h-24 v14 h-2 a10,10 0 0,0 0,20 h6 z"
-        fill="none" stroke="rgb(0,180,255)" stroke-width="2" stroke-opacity="0.09">
-    <animate attributeName="stroke-opacity" values="0.09;0.26;0.09" dur="3s"
-      repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
-      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-  </path>
-
-  <!-- Circle cluster — pulse in size and opacity -->
-  <circle cx="192" cy="175" r="5" fill="rgb(0,180,255)" fill-opacity="0.09">
-    <animate attributeName="r" values="5;7.5;5" dur="3s" repeatCount="indefinite"
-      calcMode="spline" keyTimes="0;0.5;1"
-      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-    <animate attributeName="fill-opacity" values="0.09;0.2;0.09" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="205" cy="158" r="3" fill="rgb(124,0,255)" fill-opacity="0.07">
-    <animate attributeName="r" values="3;4.5;3" dur="4s" begin="0.6s" repeatCount="indefinite"
-      calcMode="spline" keyTimes="0;0.5;1"
-      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-  </circle>
-  <circle cx="178" cy="162" r="3.5" fill="rgb(255,45,135)" fill-opacity="0.07">
-    <animate attributeName="r" values="3.5;5.5;3.5" dur="3.5s" begin="1.2s" repeatCount="indefinite"
-      calcMode="spline" keyTimes="0;0.5;1"
-      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-  </circle>
-
-  <!-- Lone circle — bobs vertically -->
-  <circle cx="25" cy="165" r="3" fill="rgb(0,180,255)" fill-opacity="0.07">
-    <animate attributeName="cy" values="165;159;165" dur="5s" begin="2s" repeatCount="indefinite"
-      calcMode="spline" keyTimes="0;0.5;1"
-      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-  </circle>
-
-  <!-- Small ? — floats, longest phase offset -->
-  <text x="185" y="90" font-size="18" font-family="Arial, sans-serif"
-        fill="rgb(124,0,255)" fill-opacity="0.06">?
+  <!-- Book — right-upper-center, floats -->
+  <g transform="translate(303,135)" stroke="rgb(0,180,255)" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-opacity="0.09">
+    <path d="M18,3 C12,1 2,3 0,5 L0,30 C2,28 12,27 18,28 Z"/>
+    <path d="M18,3 C24,1 34,3 36,5 L36,30 C34,28 24,27 18,28 Z"/>
+    <line x1="18" y1="3" x2="18" y2="28"/>
     <animateTransform attributeName="transform" type="translate"
-      values="0,0; 0,-5; 0,0" dur="6s" begin="3s" repeatCount="indefinite"
+      values="0,0; 0,-7; 0,0" dur="5.5s" begin="0.8s" repeatCount="indefinite"
+      additive="sum" calcMode="spline" keyTimes="0;0.5;1"
+      keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+  </g>
+
+  <!-- Globe — left-center, pulses (r=18) -->
+  <g fill="none" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="65" cy="255" r="18" stroke="rgb(124,0,255)" stroke-opacity="0.08">
+      <animate attributeName="stroke-opacity" values="0.08;0.18;0.08" dur="4s" begin="2s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </circle>
+    <ellipse cx="65" cy="255" rx="9" ry="18" stroke="rgb(124,0,255)" stroke-opacity="0.08">
+      <animate attributeName="stroke-opacity" values="0.08;0.18;0.08" dur="4s" begin="2s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </ellipse>
+    <line x1="47" y1="255" x2="83" y2="255" stroke="rgb(124,0,255)" stroke-opacity="0.08">
+      <animate attributeName="stroke-opacity" values="0.08;0.18;0.08" dur="4s" begin="2s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </line>
+    <line x1="49" y1="247" x2="81" y2="247" stroke="rgb(124,0,255)" stroke-opacity="0.06">
+      <animate attributeName="stroke-opacity" values="0.06;0.14;0.06" dur="4s" begin="2s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </line>
+    <line x1="49" y1="263" x2="81" y2="263" stroke="rgb(124,0,255)" stroke-opacity="0.06">
+      <animate attributeName="stroke-opacity" values="0.06;0.14;0.06" dur="4s" begin="2s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </line>
+  </g>
+
+  <!-- Equal = — center, pulses (w=34, h=7) -->
+  <g fill="rgb(255,45,135)">
+    <rect x="222" y="318" width="34" height="7" rx="3.5" fill-opacity="0.08">
+      <animate attributeName="fill-opacity" values="0.08;0.18;0.08" dur="3.5s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </rect>
+    <rect x="222" y="332" width="34" height="7" rx="3.5" fill-opacity="0.08">
+      <animate attributeName="fill-opacity" values="0.08;0.18;0.08" dur="3.5s" begin="0.25s"
+        repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </rect>
+  </g>
+
+  <!-- Star 2 — right-lower, counter-clockwise (R=17, r=7) -->
+  <polygon points="400,338 404,349 416,350 407,357 410,369 400,362 390,369 393,357 384,350 396,349"
+           fill="rgb(255,45,135)" fill-opacity="0.08">
+    <animateTransform attributeName="transform" type="rotate"
+      values="0 400 355; -360 400 355" dur="9s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Medium ? — bottom-left, floats -->
+  <text x="48" y="465" font-size="38" font-family="Arial, sans-serif"
+        fill="rgb(124,0,255)" fill-opacity="0.07">?
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-6; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"
       calcMode="spline" keyTimes="0;0.5;1"
       keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
   </text>
